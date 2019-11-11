@@ -9,7 +9,7 @@ gofmtmd formats go source code block in Markdown. detects fenced code & formats 
 ## Instalation
 
 ```
-$ go get github.com/po3rin/gofmtmd
+$ go get github.com/po3rin/gofmtmd/cmd/gofmtmd
 ```
 
 ## Usage
