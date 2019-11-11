@@ -1,12 +1,10 @@
 # gofmtmd
 
-
-<img src="https://img.shields.io/badge/go-v1.13-blue.svg"/> [![GoDoc](https://godoc.org/github.com/po3rin/gofmtmd?status.svg)](https://godoc.org/github.com/po3rin/gofmtmd)
+<img src="https://img.shields.io/badge/go-v1.13-blue.svg"/> [![GoDoc](https://godoc.org/github.com/po3rin/gofmtmd?status.svg)](https://godoc.org/github.com/po3rin/gofmtmd) [![CircleCI](https://circleci.com/gh/po3rin/gofmtmd.svg?style=shield)](https://circleci.com/gh/po3rin/gofmtmd) [![codecov](https://codecov.io/gh/po3rin/gofmtmd/branch/master/graph/badge.svg)](https://codecov.io/gh/po3rin/gofmtmd) [![GolangCI](https://golangci.com/badges/github.com/po3rin/gofmtmd.svg)](https://golangci.com)
 
 <img src="image/cover.png" width="640px"/>
 
-gofmtmd formats go source code block in Markdown. detects fenced code & formats code using gofmt. 
-
+gofmtmd formats go source code block in Markdown. detects fenced code & formats code using gofmt.
 
 ## Usage
 
