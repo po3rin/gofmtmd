@@ -24,7 +24,7 @@ var rootCmd = &cobra.Command{
 		filename := args[0]
 		md, err := ioutil.ReadFile(filename)
 		if err != nil {
-			log.Fatalf("failed to read bytes from %v: ", filename)
+			log.Fatalf("[gofmtmd] failed to read bytes from %v: %v", filename, err)
 		}
 		out, err := gofmtmd.FmtGoCodeInMarkdown(md)
 		if err != nil {
@@ -34,13 +34,13 @@ var rootCmd = &cobra.Command{
 		if replace {
 			err = ioutil.WriteFile(filename, out, 0644)
 			if err != nil {
-				log.Fatalf("failed to writes to %v: ", filename)
+				log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
 			}
 		}
 		if outputfile != "" {
 			err = ioutil.WriteFile(outputfile, out, 0644)
 			if err != nil {
-				log.Fatalf("failed to writes to %v: ", filename)
+				log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
 			}
 		}
 		if !replace && outputfile == "" {
