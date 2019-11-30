@@ -17,7 +17,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:     "gofmtmd",
-	Version: "0.0.1",
+	Version: "0.1.1",
 	Short:   "This CLI formats Go Code in Markdown.",
 	Args:    cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
