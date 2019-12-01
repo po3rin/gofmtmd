@@ -19,10 +19,19 @@ var rootCmd = &cobra.Command{
 	Use:     "gofmtmd",
 	Version: "0.1.1",
 	Short:   "This CLI formats Go Code in Markdown.",
-	Args:    cobra.MinimumNArgs(1),
+	Args:    cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		filename := args[0]
-		md, err := ioutil.ReadFile(filename)
+		var filename string
+		if len(args) > 0 {
+			filename = args[0]
+		}
+		var md []byte
+		var err error
+		if filename != "" {
+			md, err = ioutil.ReadFile(filename)
+		} else {
+			md, err = ioutil.ReadAll(os.Stdin)
+		}
 		if err != nil {
 			log.Fatalf("[gofmtmd] failed to read bytes from %v: %v", filename, err)
 		}
@@ -31,16 +40,18 @@ var rootCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		if replace {
-			err = ioutil.WriteFile(filename, out, 0644)
-			if err != nil {
-				log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
+		if filename != "" {
+			if replace {
+				err = ioutil.WriteFile(filename, out, 0644)
+				if err != nil {
+					log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
+				}
 			}
-		}
-		if outputfile != "" {
-			err = ioutil.WriteFile(outputfile, out, 0644)
-			if err != nil {
-				log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
+			if outputfile != "" {
+				err = ioutil.WriteFile(outputfile, out, 0644)
+				if err != nil {
+					log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
+				}
 			}
 		}
 		if !replace && outputfile == "" {
