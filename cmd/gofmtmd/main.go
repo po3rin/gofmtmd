@@ -19,7 +19,7 @@ var rootCmd = &cobra.Command{
 	Use:     "gofmtmd",
 	Version: "0.1.1",
 	Short:   "This CLI formats Go Code in Markdown.",
-	Args:    cobra.MinimumNArgs(0),
+	Args:    cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		var filename string
 		if len(args) > 0 {
