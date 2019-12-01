@@ -20,6 +20,10 @@ $ gofmtmd testdata/testdata.md -r
 
 # write result to file instead of stdout
 $ gofmtmd testdata/testdata.md -w formatted.md
+
+# you can use stdndard input
+$ gofmtmd < testdata/testdata.md
+$ echo "#hello" | gofmtmd
 ```
 
 ## Help

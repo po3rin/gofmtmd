@@ -17,7 +17,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:     "gofmtmd",
-	Version: "0.1.1",
+	Version: "0.1.2",
 	Short:   "This CLI formats Go Code in Markdown.",
 	Args:    cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -46,18 +46,19 @@ var rootCmd = &cobra.Command{
 				if err != nil {
 					log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
 				}
-			}
-			if outputfile != "" {
-				err = ioutil.WriteFile(outputfile, out, 0644)
-				if err != nil {
-					log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
-				}
+				return
 			}
 		}
-		if !replace && outputfile == "" {
-			writer := os.Stdout
-			fmt.Fprint(writer, string(out))
+		if outputfile != "" {
+			err := ioutil.WriteFile(outputfile, out, 0644)
+			if err != nil {
+				log.Fatalf("[gofmtmd] failed to writes to %v: %v", outputfile, err)
+			}
+			return
 		}
+
+		writer := os.Stdout
+		fmt.Fprint(writer, string(out))
 	},
 }
 
