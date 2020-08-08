@@ -44,6 +44,6 @@ Flags:
 
 ## Vim Plugin
 
-VIm plugin version is here! this plugin lets you to run automatically when saved.
+Vim plugin version is here! this plugin lets you to run automatically when saved.
 
 <a href="https://github.com/po3rin/vim-gofmtmd"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/po3rin/vim-gofmtmd.png" width="460px"></a>
