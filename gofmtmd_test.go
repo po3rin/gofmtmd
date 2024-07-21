@@ -3,7 +3,7 @@ package gofmtmd_test
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/po3rin/gofmtmd"
@@ -32,11 +32,11 @@ func TestFmtGoCodeInMarkdown(t *testing.T) {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
-			md, err := ioutil.ReadFile(tt.inputfile)
+			md, err := os.ReadFile(tt.inputfile)
 			if err != nil {
 				t.Fatalf("failed to read bytes from %v: ", tt.inputfile)
 			}
-			want, err := ioutil.ReadFile(tt.goldenfile)
+			want, err := os.ReadFile(tt.goldenfile)
 			if err != nil {
 				t.Fatalf("failed to read bytes from %v: ", tt.inputfile)
 			}

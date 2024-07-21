@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 
@@ -28,9 +28,9 @@ var rootCmd = &cobra.Command{
 		var md []byte
 		var err error
 		if filename != "" {
-			md, err = ioutil.ReadFile(filename)
+			md, err = os.ReadFile(filename)
 		} else {
-			md, err = ioutil.ReadAll(os.Stdin)
+			md, err = io.ReadAll(os.Stdin)
 		}
 		if err != nil {
 			log.Fatalf("[gofmtmd] failed to read bytes from %v: %v", filename, err)
@@ -42,7 +42,7 @@ var rootCmd = &cobra.Command{
 
 		if filename != "" {
 			if replace {
-				err = ioutil.WriteFile(filename, out, 0644)
+				err = os.WriteFile(filename, out, 0644)
 				if err != nil {
 					log.Fatalf("[gofmtmd] failed to writes to %v: %v", filename, err)
 				}
@@ -50,7 +50,7 @@ var rootCmd = &cobra.Command{
 			}
 		}
 		if outputfile != "" {
-			err := ioutil.WriteFile(outputfile, out, 0644)
+			err := os.WriteFile(outputfile, out, 0644)
 			if err != nil {
 				log.Fatalf("[gofmtmd] failed to writes to %v: %v", outputfile, err)
 			}
