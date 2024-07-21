@@ -15,7 +15,7 @@ $ go get github.com/po3rin/gofmtmd/cmd/gofmtmd
 ## Usage
 
 ```bash
-# replace Go code with formated code
+# replace Go code with formatted code
 $ gofmtmd testdata/testdata.md -r
 
 # write result to file instead of stdout
@@ -37,7 +37,7 @@ Usage:
 
 Flags:
   -h, --help           help for gofmtmd
-  -r, --replace        replace Go code with formated code
+  -r, --replace        replace Go code with formatted code
       --version        version for gofmtmd
   -w, --write string   write result to file instead of stdout
 ```

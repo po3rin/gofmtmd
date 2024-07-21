@@ -17,7 +17,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:     "gofmtmd",
-	Version: "0.1.2",
+	Version: "0.1.3",
 	Short:   "This CLI formats Go Code in Markdown.",
 	Args:    cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
@@ -63,7 +63,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.PersistentFlags().BoolVarP(&replace, "replace", "r", false, "replace Go code with formated code")
+	rootCmd.PersistentFlags().BoolVarP(&replace, "replace", "r", false, "replace Go code with formatted code")
 	rootCmd.PersistentFlags().StringVarP(&outputfile, "write", "w", "", "write result to file instead of stdout")
 }
 
